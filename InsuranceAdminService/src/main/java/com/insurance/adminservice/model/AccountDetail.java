@@ -15,13 +15,12 @@ import lombok.NoArgsConstructor;
 public class AccountDetail {
 	@Id
 	@GeneratedValue(strategy = GenerationType.AUTO)
-	private int bankId;
-	private String bankName;
-	private String bankAdress;
-	private String bankAccoutHolderName;
-	private String bankAccountType;
-	private long bankAccountNumber;
-	private String bankIfscNumber;
+	private int accountId;
+	private String accountHolderName;
+	private String accountHolderAddress;
+	private String accountType;
+	private long accountNumber;
+	private String accountIfscNumber;
 	
 	
 

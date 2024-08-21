@@ -11,10 +11,9 @@ import com.insurance.adminservice.model.Employee;
 import com.insurance.adminservice.servicei.AdminServiceI;
 
 @RestController
-public class AdminController {
+public class EmployeeController {
 	
 	@Autowired AdminServiceI service; 
-	
 	
 	@PostMapping("/saveEmployee")
 	public ResponseEntity<Employee> saveEmployee(@RequestBody Employee employee)
@@ -24,7 +23,4 @@ public class AdminController {
 		return new ResponseEntity<Employee>(employeeRef, HttpStatus.CREATED);
 	}
 	
-	
-	
-
 }

@@ -13,6 +13,7 @@ import lombok.NoArgsConstructor;
 @AllArgsConstructor
 @Entity
 public class Employee {
+	
 	@Id
 	@GeneratedValue(strategy = GenerationType.AUTO)
 	private int employeeId;
