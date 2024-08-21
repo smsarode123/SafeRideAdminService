@@ -6,7 +6,7 @@ import org.springframework.web.bind.annotation.RestController;
 import com.insurance.adminservice.servicei.AdminServiceI;
 
 @RestController
-public class AdminController {
+public class EmployeeController {
 	
 	@Autowired AdminServiceI service; 
 
