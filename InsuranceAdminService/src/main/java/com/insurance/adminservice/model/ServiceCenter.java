@@ -1,5 +1,6 @@
 package com.insurance.adminservice.model;
 
+import java.util.List;
 import java.util.Set;
 
 import jakarta.persistence.CascadeType;
@@ -25,7 +26,7 @@ public class ServiceCenter {
 	private String serviceCenterAddress;
 	private long serviceCenterContactNumber;
 	@OneToMany(cascade = CascadeType.ALL)
-	private Set<AccountDetail> accountDetails;
+	private List<AccountDetail> accountDetails;
 	
 
 }
