@@ -1,6 +1,5 @@
 package com.insurance.adminservice.controller;
 
-import org.apache.http.protocol.HTTP;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
@@ -12,12 +11,12 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RestController;
 
 import com.insurance.adminservice.model.Employee;
-import com.insurance.adminservice.servicei.AdminServiceI;
+import com.insurance.adminservice.servicei.EmployeeServiceI;
 
 @RestController
 public class EmployeeController {
 	
-	@Autowired AdminServiceI service; 
+	@Autowired EmployeeServiceI service; 
 	
 	@PostMapping("/saveEmployee")
 	public ResponseEntity<Employee> saveEmployee(@RequestBody Employee employee)
@@ -27,7 +26,7 @@ public class EmployeeController {
 		return new ResponseEntity<Employee>(employeeRef, HttpStatus.CREATED);
 	}
 	
-	@DeleteMapping("/deleteEmployee")
+	@DeleteMapping("/deleteEmployee/{employeeId}")
 	public ResponseEntity<String>removeEmployee(@PathVariable ("employeeId") int empoyeeId)
 	{
 		
@@ -37,7 +36,7 @@ public class EmployeeController {
 	}
 	
 	
-	@PutMapping("/updateEmployee")
+	@PutMapping("/updateEmployee/{employeeId}")
 	public ResponseEntity<Employee>updateEmployee(@PathVariable ("employeeId") int employeeId,@RequestBody Employee emp)
 	{
 		
