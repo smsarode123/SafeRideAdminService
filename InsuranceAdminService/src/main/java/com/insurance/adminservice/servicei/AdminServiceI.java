@@ -6,4 +6,6 @@ public interface AdminServiceI {
 
 	Employee saveEmployee(Employee employee);
 
+	void removeEmployeeById(int empoyeeId);
+
 }
