@@ -49,6 +49,23 @@ public class AdminServiceImpl implements AdminServiceI {
 	
 		
 	}
+
+	@Override
+	public Employee updateEmployeeDataById(Employee emp, int employeeId) {
+		
+		Optional<Employee> employee=employeeRepository.findById(employeeId);
+		if(employee.isPresent())
+		{
+			
+			
+			return employeeRepository.save(emp);
+		}
+		else
+		{
+			throw new InvalidEmployeeIdException("Employee Id"+employeeId+" Is Not Present For Update Operation");
+		}
+		
+	}
 	
 	
 

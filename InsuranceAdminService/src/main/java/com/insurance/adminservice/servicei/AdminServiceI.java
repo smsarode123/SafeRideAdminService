@@ -8,4 +8,6 @@ public interface AdminServiceI {
 
 	void removeEmployeeById(int empoyeeId);
 
+	Employee updateEmployeeDataById(Employee emp, int employeeId);
+
 }
