@@ -6,8 +6,4 @@ public interface ServiceCenterService {
 
 	ServiceCenter saveServiceCenter(ServiceCenter serviceCenter);
 
-	void removeServiceCenterById(int serviceCenterId);
-
-	ServiceCenter UpdateServiceCenterDataById(ServiceCenter service, int servicecenterId);
-
 }
