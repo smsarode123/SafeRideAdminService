@@ -18,5 +18,5 @@ public class ErrorResponse {
 	private Date responseDate;
 	private int statusCode;
 	
-
+ 
 }

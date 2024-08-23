@@ -22,6 +22,6 @@ public class AccountDetail {
 	private long accountNumber;
 	private String accountIfscNumber;
 	
-	
+	 
 
 }

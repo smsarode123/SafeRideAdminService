@@ -27,6 +27,6 @@ public class ServiceCenter {
 	private long serviceCenterContactNumber;
 	@OneToMany(cascade = CascadeType.ALL)
 	private List<AccountDetail> accountDetails;
-	
+ 	
 
 }
