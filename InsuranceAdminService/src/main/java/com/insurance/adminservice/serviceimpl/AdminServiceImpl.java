@@ -1,5 +1,7 @@
 package com.insurance.adminservice.serviceimpl;
 
+import java.util.List;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -22,6 +24,14 @@ public class AdminServiceImpl implements AdminServiceI {
 		
 		return employeeRepository.save(employee);
 	}
+
+	@Override
+	public List<Employee> getAllEmployee() {
+		
+		return employeeRepository.findAll();
+	}
+
+	
 	
 	
 
