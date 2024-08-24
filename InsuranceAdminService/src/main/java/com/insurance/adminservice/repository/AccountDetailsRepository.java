@@ -6,5 +6,5 @@ import org.springframework.stereotype.Repository;
 import com.insurance.adminservice.model.AccountDetail;
 @Repository
 public interface AccountDetailsRepository extends JpaRepository<AccountDetail, Integer>{
-
+ 
 }

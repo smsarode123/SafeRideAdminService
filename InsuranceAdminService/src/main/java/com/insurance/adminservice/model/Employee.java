@@ -22,8 +22,9 @@ public class Employee {
 	private long employeeContactNumber;
 	private float employeeSalary;
 	private String employeeDesignation;
+	private String employeeEmailId;
 	private String username;
 	private String password;
 	
-	
+
 }
