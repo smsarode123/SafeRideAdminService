@@ -1,5 +1,6 @@
 package com.insurance.adminservice.serviceimpl;
 
+import java.util.List;
 import java.util.Optional;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -65,6 +66,12 @@ public class EmployeeServiceImpl implements EmployeeServiceI {
 			throw new InvalidEmployeeIdException("Employee Id"+employeeId+" Is Not Present For Update Operation");
 		}
 		
+	}
+
+	@Override
+	public List<Employee> getAllEmployee() {
+		
+		return null;
 	}
 	
 	 
