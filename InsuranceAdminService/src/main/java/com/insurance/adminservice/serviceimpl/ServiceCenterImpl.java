@@ -1,5 +1,6 @@
 package com.insurance.adminservice.serviceimpl;
 
+import java.util.List;
 import java.util.Optional;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -52,4 +53,25 @@ public class ServiceCenterImpl implements ServiceCenterService {
 		}
 
 	}
+
+	@Override
+	public List<ServiceCenter> getAllServiceCenter() {
+		List<ServiceCenter> servicecenter = repository.findAll();
+		return servicecenter;
+	}
+
+	@Override
+	public ServiceCenter getSingleServiceCenterById(int serviceCenterId) {
+
+		Optional<ServiceCenter> servicecenter = repository.findById(serviceCenterId);
+
+		if (servicecenter.isPresent()) {
+			return servicecenter.get();
+
+		} else {
+			throw new ServiceCenterIdIsNotFoundException(
+					"ServiceCenter Id    " + serviceCenterId + "    Is NOt Present");
+		}
+	}
+
 }
