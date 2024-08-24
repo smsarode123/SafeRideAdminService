@@ -18,45 +18,40 @@ import com.insurance.adminservice.servicei.EmployeeServiceI;
 
 @RestController
 public class EmployeeController {
-	
-	@Autowired EmployeeServiceI service; 
-	
+
+	@Autowired
+	EmployeeServiceI service;
+
 	@PostMapping("/saveEmployee")
-	public ResponseEntity<Employee> saveEmployee(@RequestBody Employee employee)
-	{
+	public ResponseEntity<Employee> saveEmployee(@RequestBody Employee employee) {
 		Employee employeeRef = service.saveEmployee(employee);
-		
+
 		return new ResponseEntity<Employee>(employeeRef, HttpStatus.CREATED);
 	}
-	
 
 	@DeleteMapping("/deleteEmployee/{employeeId}")
-	public ResponseEntity<String>removeEmployee(@PathVariable ("employeeId") int empoyeeId)
-	{
-		
+	public ResponseEntity<String> removeEmployee(@PathVariable("employeeId") int empoyeeId) {
+
 		service.removeEmployeeById(empoyeeId);
-		
-		return new ResponseEntity<String>("Employee Data Deleted Successfully",HttpStatus.GONE);
+
+		return new ResponseEntity<String>("Employee Data Deleted Successfully", HttpStatus.GONE);
 	}
-	
-	
+
 	@PutMapping("/updateEmployee/{employeeId}")
-	public ResponseEntity<Employee>updateEmployee(@PathVariable ("employeeId") int employeeId,@RequestBody Employee emp)
-	{
-		
-		
-		Employee employee=service.updateEmployeeDataById(emp,employeeId);
-		
+	public ResponseEntity<Employee> updateEmployee(@PathVariable("employeeId") int employeeId,
+			@RequestBody Employee emp) {
+
+		Employee employee = service.updateEmployeeDataById(emp, employeeId);
+
 		return new ResponseEntity<Employee>(employee, HttpStatus.ACCEPTED);
-		
+
 	}
 
 	@GetMapping("/getAllEmployee")
-	public ResponseEntity<List<Employee>> getAllEmployee()
-	{
-		List<Employee> employees=service.getAllEmployee();
-		
-		return new ResponseEntity<List<Employee>>(employees,HttpStatus.FOUND);
+	public ResponseEntity<List<Employee>> getAllEmployee() {
+		List<Employee> employees = service.getAllEmployee();
+
+		return new ResponseEntity<List<Employee>>(employees, HttpStatus.FOUND);
 	}
 
 }

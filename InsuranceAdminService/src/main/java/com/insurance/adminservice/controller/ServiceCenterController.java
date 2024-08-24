@@ -15,34 +15,31 @@ import com.insurance.adminservice.servicei.ServiceCenterService;
 
 @RestController
 public class ServiceCenterController {
-	
-	
-	@Autowired ServiceCenterService scs;
-	
-	
+
+	@Autowired
+	ServiceCenterService scs;
+
 	@PostMapping("/saveservicecenter")
-	public ResponseEntity<ServiceCenter> saveServiceCenter(@RequestBody ServiceCenter serviceCenter)
-	{
+	public ResponseEntity<ServiceCenter> saveServiceCenter(@RequestBody ServiceCenter serviceCenter) {
 		ServiceCenter serviceCenterRef = scs.saveServiceCenter(serviceCenter);
-		
+
 		return new ResponseEntity<ServiceCenter>(serviceCenterRef, HttpStatus.CREATED);
 	}
-	
+
 	@DeleteMapping("/deleteservicecenter/{serviceCenterId}")
-	public ResponseEntity<String>deletedServiceCenter(@PathVariable ("serviceCenterId") int serviceCenterId)
-	{
+	public ResponseEntity<String> deletedServiceCenter(@PathVariable("serviceCenterId") int serviceCenterId) {
 		scs.removeServiceCenterById(serviceCenterId);
-		
-		return  new ResponseEntity<String>("ServiceCnter Data Deleted Successfully", HttpStatus.GONE);
+
+		return new ResponseEntity<String>("ServiceCnter Data Deleted Successfully", HttpStatus.GONE);
 	}
-	
+
 	@PutMapping("/updateservicecenter/{serviceCenterId}")
-	public ResponseEntity<ServiceCenter>updateServiceCenter(@PathVariable ("serviceCenterId") int servicecenterId,@RequestBody ServiceCenter service)
-   {
-		
-		ServiceCenter servicecenterdata=scs.UpdateServiceCenterDataById(service,servicecenterId);
-		
+	public ResponseEntity<ServiceCenter> updateServiceCenter(@PathVariable("serviceCenterId") int servicecenterId,
+			@RequestBody ServiceCenter service) {
+
+		ServiceCenter servicecenterdata = scs.UpdateServiceCenterDataById(service, servicecenterId);
+
 		return new ResponseEntity<ServiceCenter>(servicecenterdata, HttpStatus.ACCEPTED);
-   }
- 	
+	}
+
 }
