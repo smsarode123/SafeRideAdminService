@@ -66,7 +66,20 @@ public class EmployeeServiceImpl implements EmployeeServiceI {
 	@Override
 	public List<Employee> getAllEmployee() {
 
-		return null;
+		List<Employee> employees = employeeRepository.findAll();
+
+		return employees;
+
+	}
+
+	@Override
+	public Employee getSingleEmployee(int employeeId) {
+		Optional<Employee> employee = employeeRepository.findById(employeeId);
+		if (employee.isPresent()) {
+			return employee.get();
+		} else {
+			throw new InvalidEmployeeIdException("Employee Id" + employeeId + " Is Not Present For Update Operation");
+		}
 	}
 
 }

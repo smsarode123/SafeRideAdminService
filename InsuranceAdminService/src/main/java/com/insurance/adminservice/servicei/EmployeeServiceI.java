@@ -13,5 +13,7 @@ public interface EmployeeServiceI {
 	Employee updateEmployeeDataById(Employee emp, int employeeId);
 
 	List<Employee> getAllEmployee();
+
+	Employee getSingleEmployee(int employeeId);
  
 }
