@@ -27,6 +27,7 @@ public class Employee {
 	private String employeeEmailId;
 	private String username;
 	private String password;
+
 	@Lob
 	@Column(length = 999999999)
 	private byte [] pancardImgae;
@@ -35,4 +36,5 @@ public class Employee {
 	@Column(length = 999999999)
 	private byte [] profileImage;
  
+
 }
