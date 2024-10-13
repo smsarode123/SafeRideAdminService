@@ -13,6 +13,8 @@ import org.springframework.web.bind.annotation.RestController;
 import com.insurance.adminservice.model.ServiceCenter;
 import com.insurance.adminservice.servicei.ServiceCenterService;
 
+import jakarta.servlet.annotation.MultipartConfig;
+
 @RestController
 public class ServiceCenterController {
 	
