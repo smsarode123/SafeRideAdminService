@@ -25,5 +25,7 @@ public interface EmployeeServiceI {
 
 	Employee getSingleEmployee(int employeeId);
 
+	Employee getEmployeeByUsernameAndPassword(String username, String password);
+
  
 }

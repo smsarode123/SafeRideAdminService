@@ -116,6 +116,17 @@ public class EmployeeServiceImpl implements EmployeeServiceI {
 
 	}
 
+	@Override
+	public Employee getEmployeeByUsernameAndPassword(String username, String password) {
+		Optional< Employee> empolOptional= employeeRepository.findByUsernameAndPassword(username, password);
+		if(empolOptional.isPresent()) {
+			
+			return empolOptional.get();
+		}else {
+			throw new InvalidEmployeeIdException("Wrong Username :- "+username+" And PassWord :- " +password + " Wrong Input");
+		}
+	}
+
 	
 
 	

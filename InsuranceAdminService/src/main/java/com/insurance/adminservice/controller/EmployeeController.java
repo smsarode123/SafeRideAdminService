@@ -30,10 +30,23 @@ public class EmployeeController {
 	
 	
 	@PostMapping("/saveEmployee")
-	public ResponseEntity<Employee> saveEmployee(@RequestPart ("pancard") MultipartFile pancard,@RequestPart ("data") String documentjson,@RequestPart ("profile") MultipartFile profile)
+	public ResponseEntity<Employee> saveEmployee(@RequestPart ("pancard") MultipartFile pancard,
+			                                     @RequestPart ("data") String documentjson,
+			                                     @RequestPart ("profile") MultipartFile profile)
 	{
 		Employee employeeRef = service.saveEmployee(documentjson,pancard,profile);
 		return new ResponseEntity<Employee>(employeeRef, HttpStatus.CREATED);
+	}
+	
+	@GetMapping("/getEmployeeByUsernameAndPassword/{username}/{password}")
+	public ResponseEntity<Employee> getEmployeeByUsernameAndPassword(@PathVariable String username ,
+																	 @PathVariable String password)
+	{
+		
+		Employee emp=service.getEmployeeByUsernameAndPassword(username,password);
+		
+		return new ResponseEntity<Employee>(emp,HttpStatus.OK);
+		
 	}
 
 	@DeleteMapping("/deleteEmployee/{employeeId}")
