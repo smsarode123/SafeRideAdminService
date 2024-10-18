@@ -14,10 +14,7 @@ public interface EmployeeServiceI {
 
 	void removeEmployeeById(int empoyeeId);
 
-	Employee updateEmployeeDataById(Employee emp, int employeeId);
 
-
-	
 
 	
 
@@ -26,6 +23,8 @@ public interface EmployeeServiceI {
 	Employee getSingleEmployee(int employeeId);
 
 	Employee getEmployeeByUsernameAndPassword(String username, String password);
+
+	Employee updateEmployeeDataById(int employeeId, MultipartFile pancard, MultipartFile profile, String documentjson);
 
  
 }

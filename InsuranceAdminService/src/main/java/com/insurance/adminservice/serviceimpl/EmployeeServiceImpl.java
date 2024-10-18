@@ -12,6 +12,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.web.multipart.MultipartFile;
 
+import com.fasterxml.jackson.core.JsonProcessingException;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import com.insurance.adminservice.exception.InvalidEmployeeIdException;
 import com.insurance.adminservice.model.Employee;
@@ -37,8 +38,6 @@ public class EmployeeServiceImpl implements EmployeeServiceI {
 	private ServiceCenterRepository serviceCenterRepository;
 
 
-	
-
 
 	@Override
 	public void removeEmployeeById(int empoyeeId) {
@@ -54,18 +53,6 @@ public class EmployeeServiceImpl implements EmployeeServiceI {
 
 	}
 
-	@Override
-	public Employee updateEmployeeDataById(Employee emp, int employeeId) {
-
-		Optional<Employee> employee = employeeRepository.findById(employeeId);
-		if (employee.isPresent()) {
-
-			return employeeRepository.save(emp);
-		} else {
-			throw new InvalidEmployeeIdException("Employee Id" + employeeId + " Is Not Present For Update Operation");
-		}
-
-	}
 
 	@Override
 	public List<Employee> getAllEmployee() {
@@ -125,6 +112,30 @@ public class EmployeeServiceImpl implements EmployeeServiceI {
 		}else {
 			throw new InvalidEmployeeIdException("Wrong Username :- "+username+" And PassWord :- " +password + " Wrong Input");
 		}
+	}
+
+	@Override
+	public Employee updateEmployeeDataById(int employeeId, MultipartFile pancard, MultipartFile profile,
+			String documentjson) {
+		Employee emp=null;
+		ObjectMapper objectMapper=new ObjectMapper();
+		try {
+			emp=objectMapper.readValue(documentjson, Employee.class);
+			
+			String fivechar=emp.getEmployeeName().substring(0, 4);
+			emp.setUsername(UsernameAndPasswordUtility.genrateUsername(fivechar));
+			emp.setPassword(UsernameAndPasswordUtility.genratePassword(fivechar));
+			
+			 emp.setProfileImage(profile.getBytes());
+			 emp.setPancardImgae(pancard.getBytes());
+			
+		} catch (JsonProcessingException e) {
+			
+			e.printStackTrace();
+		} catch(IOException e) {
+			e.printStackTrace();
+		}
+		return employeeRepository.save(emp); 
 	}
 
 	
