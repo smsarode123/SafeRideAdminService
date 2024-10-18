@@ -1,11 +1,8 @@
 package com.insurance.adminservice.serviceimpl;
 
 
-import java.io.IOError;
 import java.io.IOException;
-
 import java.util.List;
-
 import java.util.Optional;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -21,9 +18,6 @@ import com.insurance.adminservice.repository.EmployeeRepository;
 import com.insurance.adminservice.repository.ServiceCenterRepository;
 import com.insurance.adminservice.servicei.EmployeeServiceI;
 import com.insurance.adminservice.utility.UsernameAndPasswordUtility;
-
-
-import com.thoughtworks.xstream.mapper.Mapper;
 
 @Service
 public class EmployeeServiceImpl implements EmployeeServiceI {

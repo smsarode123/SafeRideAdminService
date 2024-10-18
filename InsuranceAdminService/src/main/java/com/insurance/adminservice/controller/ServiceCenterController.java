@@ -16,9 +16,6 @@ import org.springframework.web.bind.annotation.RestController;
 
 import com.insurance.adminservice.model.ServiceCenter;
 import com.insurance.adminservice.servicei.ServiceCenterService;
-import org.springframework.web.bind.annotation.RequestParam;
-
-import jakarta.servlet.annotation.MultipartConfig;
 
 @CrossOrigin("http://localhost:3000")
 @RestController
