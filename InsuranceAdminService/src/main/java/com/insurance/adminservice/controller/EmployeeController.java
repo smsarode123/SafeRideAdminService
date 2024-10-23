@@ -6,6 +6,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.jpa.repository.Temporal;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
+import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -20,6 +21,7 @@ import org.springframework.web.multipart.MultipartFile;
 import com.insurance.adminservice.model.Employee;
 import com.insurance.adminservice.servicei.EmployeeServiceI;
 
+@CrossOrigin("http://localhost:3000")
 @RestController
 public class EmployeeController {
 	
@@ -71,7 +73,7 @@ public class EmployeeController {
 	public ResponseEntity<List<Employee>> getAllEmployee() {
 		List<Employee> employees = service.getAllEmployee();
 
-		return new ResponseEntity<List<Employee>>(employees, HttpStatus.FOUND);
+		return new ResponseEntity<List<Employee>>(employees, HttpStatus.OK);
 
 	}
 
